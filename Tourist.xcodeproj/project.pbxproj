@@ -3,29 +3,47 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8815707E246DDC3D00C3FE9A /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8815707D246DDC3D00C3FE9A /* ApiClient.swift */; };
+		88340FCA246ED8710076B6C6 /* ApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88340FC9246ED8710076B6C6 /* ApiInteractor.swift */; };
+		88340FCD246F56820076B6C6 /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88340FCC246F56820076B6C6 /* PhotoResponse.swift */; };
+		88340FCF246F59330076B6C6 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88340FCE246F59330076B6C6 /* Photos.swift */; };
+		88340FD1246F59620076B6C6 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88340FD0246F59620076B6C6 /* Photo.swift */; };
+		883862E52471A32A00010E5D /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883862E42471A32A00010E5D /* PhotoViewController.swift */; };
+		883862E72471C03B00010E5D /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883862E62471C03B00010E5D /* PhotoCollectionViewCell.swift */; };
 		88E6DAA9246C6DF9001327FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6DAA8246C6DF9001327FA /* AppDelegate.swift */; };
 		88E6DAAB246C6DF9001327FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6DAAA246C6DF9001327FA /* SceneDelegate.swift */; };
-		88E6DAAD246C6DF9001327FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6DAAC246C6DF9001327FA /* ViewController.swift */; };
+		88E6DAAD246C6DF9001327FA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6DAAC246C6DF9001327FA /* MapViewController.swift */; };
 		88E6DAB0246C6DF9001327FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E6DAAE246C6DF9001327FA /* Main.storyboard */; };
 		88E6DAB3246C6DF9001327FA /* Tourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88E6DAB1246C6DF9001327FA /* Tourist.xcdatamodeld */; };
 		88E6DAB5246C6DFA001327FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88E6DAB4246C6DFA001327FA /* Assets.xcassets */; };
 		88E6DAB8246C6DFA001327FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E6DAB6246C6DFA001327FA /* LaunchScreen.storyboard */; };
+		E3BB2F3D9F67234ECCB3E36E /* Pods_Tourist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B1A2B52B4395F45E195BC89 /* Pods_Tourist.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B1A2B52B4395F45E195BC89 /* Pods_Tourist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tourist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2026CA70AFEEB9F3960B22C4 /* Pods-Tourist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tourist.release.xcconfig"; path = "Target Support Files/Pods-Tourist/Pods-Tourist.release.xcconfig"; sourceTree = "<group>"; };
+		8815707D246DDC3D00C3FE9A /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		88340FC9246ED8710076B6C6 /* ApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiInteractor.swift; sourceTree = "<group>"; };
+		88340FCC246F56820076B6C6 /* PhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
+		88340FCE246F59330076B6C6 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		88340FD0246F59620076B6C6 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		883862E42471A32A00010E5D /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		883862E62471C03B00010E5D /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		88E6DAA5246C6DF9001327FA /* Tourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E6DAA8246C6DF9001327FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88E6DAAA246C6DF9001327FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		88E6DAAC246C6DF9001327FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		88E6DAAC246C6DF9001327FA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		88E6DAAF246C6DF9001327FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88E6DAB2246C6DF9001327FA /* Tourist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tourist.xcdatamodel; sourceTree = "<group>"; };
 		88E6DAB4246C6DFA001327FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88E6DAB7246C6DFA001327FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88E6DAB9246C6DFA001327FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC436B65EC57638DD19DAACC /* Pods-Tourist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tourist.debug.xcconfig"; path = "Target Support Files/Pods-Tourist/Pods-Tourist.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +51,60 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3BB2F3D9F67234ECCB3E36E /* Pods_Tourist.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05D742EF5A125439394AB6B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0B1A2B52B4395F45E195BC89 /* Pods_Tourist.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8815707A246DDA3000C3FE9A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8815707D246DDC3D00C3FE9A /* ApiClient.swift */,
+				88340FC9246ED8710076B6C6 /* ApiInteractor.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8815D2A0247326D100F664F8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				883862E42471A32A00010E5D /* PhotoViewController.swift */,
+				883862E62471C03B00010E5D /* PhotoCollectionViewCell.swift */,
+				88E6DAAC246C6DF9001327FA /* MapViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		88340FCB246F56690076B6C6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				88340FCC246F56820076B6C6 /* PhotoResponse.swift */,
+				88340FCE246F59330076B6C6 /* Photos.swift */,
+				88340FD0246F59620076B6C6 /* Photo.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		88E6DA9C246C6DF9001327FA = {
 			isa = PBXGroup;
 			children = (
+				8815D2A0247326D100F664F8 /* ViewController */,
+				88340FCB246F56690076B6C6 /* Data */,
+				8815707A246DDA3000C3FE9A /* Network */,
 				88E6DAA7246C6DF9001327FA /* Tourist */,
 				88E6DAA6246C6DF9001327FA /* Products */,
+				C51879208CCE26C4DE13F29C /* Pods */,
+				05D742EF5A125439394AB6B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,7 +121,6 @@
 			children = (
 				88E6DAA8246C6DF9001327FA /* AppDelegate.swift */,
 				88E6DAAA246C6DF9001327FA /* SceneDelegate.swift */,
-				88E6DAAC246C6DF9001327FA /* ViewController.swift */,
 				88E6DAAE246C6DF9001327FA /* Main.storyboard */,
 				88E6DAB4246C6DFA001327FA /* Assets.xcassets */,
 				88E6DAB6246C6DFA001327FA /* LaunchScreen.storyboard */,
@@ -70,6 +130,15 @@
 			path = Tourist;
 			sourceTree = "<group>";
 		};
+		C51879208CCE26C4DE13F29C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC436B65EC57638DD19DAACC /* Pods-Tourist.debug.xcconfig */,
+				2026CA70AFEEB9F3960B22C4 /* Pods-Tourist.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +146,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88E6DABC246C6DFA001327FA /* Build configuration list for PBXNativeTarget "Tourist" */;
 			buildPhases = (
+				07918E9C3962A524C0E1F009 /* [CP] Check Pods Manifest.lock */,
 				88E6DAA1246C6DF9001327FA /* Sources */,
 				88E6DAA2246C6DF9001327FA /* Frameworks */,
 				88E6DAA3246C6DF9001327FA /* Resources */,
+				4C28406116E2177BC02B69EA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,15 +207,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		07918E9C3962A524C0E1F009 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tourist-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C28406116E2177BC02B69EA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tourist/Pods-Tourist-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tourist/Pods-Tourist-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tourist/Pods-Tourist-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		88E6DAA1246C6DF9001327FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88E6DAAD246C6DF9001327FA /* ViewController.swift in Sources */,
+				88E6DAAD246C6DF9001327FA /* MapViewController.swift in Sources */,
 				88E6DAA9246C6DF9001327FA /* AppDelegate.swift in Sources */,
 				88E6DAB3246C6DF9001327FA /* Tourist.xcdatamodeld in Sources */,
+				88340FD1246F59620076B6C6 /* Photo.swift in Sources */,
 				88E6DAAB246C6DF9001327FA /* SceneDelegate.swift in Sources */,
+				88340FCF246F59330076B6C6 /* Photos.swift in Sources */,
+				8815707E246DDC3D00C3FE9A /* ApiClient.swift in Sources */,
+				88340FCA246ED8710076B6C6 /* ApiInteractor.swift in Sources */,
+				88340FCD246F56820076B6C6 /* PhotoResponse.swift in Sources */,
+				883862E72471C03B00010E5D /* PhotoCollectionViewCell.swift in Sources */,
+				883862E52471A32A00010E5D /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +406,7 @@
 		};
 		88E6DABD246C6DFA001327FA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC436B65EC57638DD19DAACC /* Pods-Tourist.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,6 +424,7 @@
 		};
 		88E6DABE246C6DFA001327FA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2026CA70AFEEB9F3960B22C4 /* Pods-Tourist.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
