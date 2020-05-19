@@ -19,13 +19,30 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vw9-M9-SoA">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLICK TO THE PIN TO DROP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MyL-1p-x5H">
+                                <rect key="frame" x="0.0" y="788" width="414" height="108"/>
+                                <color key="backgroundColor" red="0.99240022897720337" green="0.12024015933275223" blue="0.0061767878942191601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="8k6-lE-ney"/>
+                                    <constraint firstAttribute="height" constant="108" id="FzJ-xV-zNJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="MyL-1p-x5H" secondAttribute="bottom" id="6q3-kC-03f"/>
+                            <constraint firstItem="MyL-1p-x5H" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7tq-cp-1QU"/>
                             <constraint firstItem="vw9-M9-SoA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8DF-0S-t6H"/>
                             <constraint firstItem="vw9-M9-SoA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ex4-IJ-5Cy"/>
                             <constraint firstItem="vw9-M9-SoA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="f3W-pw-vdd"/>
+                            <constraint firstItem="MyL-1p-x5H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="frW-9h-XxT"/>
+                            <constraint firstItem="MyL-1p-x5H" firstAttribute="centerX" secondItem="vw9-M9-SoA" secondAttribute="centerX" id="lAp-gm-yif"/>
+                            <constraint firstItem="MyL-1p-x5H" firstAttribute="top" secondItem="vw9-M9-SoA" secondAttribute="bottom" constant="-108" id="u2K-IK-BfD"/>
                             <constraint firstAttribute="bottom" secondItem="vw9-M9-SoA" secondAttribute="bottom" id="xAK-NM-pPi"/>
+                            <constraint firstItem="MyL-1p-x5H" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="700" id="xsb-GW-NJd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -39,13 +56,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="clickToThePinDropLabel" destination="MyL-1p-x5H" id="hVg-0C-r14"/>
                         <outlet property="mapView" destination="vw9-M9-SoA" id="8Dh-xI-90c"/>
                         <segue destination="9pd-Fz-e0b" kind="show" identifier="showPhoto" id="0dv-VA-dBq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1154" y="138"/>
+            <point key="canvasLocation" x="1153.6231884057972" y="137.94642857142856"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="KnT-PI-vEB">

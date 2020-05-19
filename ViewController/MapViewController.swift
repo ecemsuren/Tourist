@@ -11,7 +11,9 @@ import MapKit
 
 class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDelegate{
     
+    @IBOutlet var dropLabel: UILabel!
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var clickToThePinDropLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,17 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         
         self.navigationItem.title = "TOURIST"
         
+        navigationItem.rightBarButtonItem = editButtonItem
+        
+        clickToThePinDropLabel.isHidden = true
+        
         self.mapView.delegate = self
+        
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        clickToThePinDropLabel.isHidden = !isEditing
     }
     
     func setMapview(){
@@ -122,6 +134,8 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
            self.performSegue(withIdentifier: "showPhoto", sender: nil)
        }
+    
+    
     
 }
 
