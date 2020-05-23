@@ -8,5 +8,6 @@ target 'Tourist' do
   # Pods for Tourist
 
 pod 'Alamofire', '~> 5.1'
+pod 'Kingfisher', '~> 5.0'
 
 end

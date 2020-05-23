@@ -12,7 +12,5 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var photoImageView: UIImageView!
     
-   
-    
     
 }

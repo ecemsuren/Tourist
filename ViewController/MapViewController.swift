@@ -11,9 +11,12 @@ import MapKit
 
 class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDelegate{
     
+   
+    
     @IBOutlet var dropLabel: UILabel!
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var clickToThePinDropLabel: UILabel!
+    var photoResponse: PhotoResponse? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +38,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         clickToThePinDropLabel.isHidden = !isEditing
     }
     
-    func setMapview(){
-        
+    func setMapview() {
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(MapViewController.handleLongPress(gestureReconizer:)))
         longPress.minimumPressDuration = 0.5
         longPress.delaysTouchesBegan = true
@@ -59,8 +61,8 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
                                    perPage: 30 ,
                                    completionHandler: { responseData in
                                       do {
-                                           let result = try JSONDecoder().decode(PhotoResponse.self, from: responseData)
-                                       } catch let error {
+                                        self.photoResponse = try JSONDecoder().decode(PhotoResponse.self, from: responseData)
+                                      } catch let error {
                                            print("Json Parse Error : \(error)")
                                       }
                                    },
@@ -82,27 +84,33 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         annotation.coordinate = coordinator
         annotation.subtitle = "\(round(1000*coordinator.latitude)/1000), \(round(1000*coordinator.longitude)/1000)"
         mapView.addAnnotation(annotation)
-        let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 30000, longitudinalMeters: 30000)
-        mapView.setRegion(region, animated: true)
+      //  let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 30000, longitudinalMeters: 30000)
+     //   mapView.setRegion(region, animated: true)
         
    }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showPhoto"  {
-         
-           // let annotationTitle = self.annotationTitle
-            let userViewController = segue.destination as! PhotoViewController
-            userViewController.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
-
-        
+    func removeMarkerFromMap(coord: CLLocationCoordinate2D) {
+        let allAnnotations = self.mapView.annotations
+        for eachAnnotation in allAnnotations {
+            if eachAnnotation.coordinate.latitude == coord.latitude || eachAnnotation.coordinate.longitude == coord.longitude {
+                self.mapView.removeAnnotation(eachAnnotation)
+            }
         }
     }
     
-    func mapView(_ mapView: MKMapView,
-                    viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPhoto"  {
+        
+            let photosVC = segue.destination as! PhotoViewController
+            photosVC.photoResponse = self.photoResponse
+        
+        }
+    }
+ 
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
               let reuseId = "pin"
-
               var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
               
               if pinView == nil {
@@ -132,11 +140,18 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
     */
        
        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-           self.performSegue(withIdentifier: "showPhoto", sender: nil)
-       }
+        if isEditing {
+            for annotation in self.mapView.annotations {
+                if (annotation.title == view.annotation?.title) {
+                    self.mapView.removeAnnotation(annotation)
+                }
+            }
+        } else {
+            self.performSegue(withIdentifier: "showPhoto", sender: nil)
+        }
+    }
     
-    
-    
+
 }
 
 
