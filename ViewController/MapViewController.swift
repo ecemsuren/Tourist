@@ -18,6 +18,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
     @IBOutlet var clickToThePinDropLabel: UILabel!
     var photoResponse: PhotoResponse? = nil
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +31,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         clickToThePinDropLabel.isHidden = true
         
         self.mapView.delegate = self
-        
+      
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -53,8 +54,10 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
             let touchLocation = gestureReconizer.location(in: mapView)
             let locationCoordinate = mapView.convert(touchLocation,toCoordinateFrom: mapView)
             print("Tapped at lat: \(locationCoordinate.latitude) long: \(locationCoordinate.longitude)")
+            if !isEditing{
+               addMarkerToMap(latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude)
+            }
             
-            addMarkerToMap(latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude)
             
             ApiInteractor().getPhotoByLatLong(latitude: locationCoordinate.latitude,
                                    longitude: locationCoordinate.longitude,
@@ -70,9 +73,9 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
                                        print("Weather Request Error : \(error)")
                                    })
             return
-            }
+            
+        }
         
-
         if gestureReconizer.state != UIGestureRecognizer.State.began {
             return
             }
@@ -84,6 +87,9 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         annotation.coordinate = coordinator
         annotation.subtitle = "\(round(1000*coordinator.latitude)/1000), \(round(1000*coordinator.longitude)/1000)"
         mapView.addAnnotation(annotation)
+        
+        
+      
       //  let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 30000, longitudinalMeters: 30000)
      //   mapView.setRegion(region, animated: true)
         
@@ -103,6 +109,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         
             let photosVC = segue.destination as! PhotoViewController
             photosVC.photoResponse = self.photoResponse
+        
         
         }
     }
@@ -140,6 +147,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
     */
        
        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        mapView.deselectAnnotation(view.annotation, animated: true)
         if isEditing {
             for annotation in self.mapView.annotations {
                 if (annotation.title == view.annotation?.title) {
@@ -151,7 +159,6 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         }
     }
     
-
 }
 
 
