@@ -12,8 +12,7 @@ import MapKit
 import Kingfisher
 
 
-class PhotoViewController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, MKMapViewDelegate
-{
+class PhotoViewController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, MKMapViewDelegate {
     
     var photoResponse: PhotoResponse? = nil
     
@@ -76,31 +75,31 @@ class PhotoViewController : UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func addMarkerToMap(latitude: Double, longitude: Double){
-                let annotation = MKPointAnnotation()
-                let coordinator = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                annotation.coordinate = coordinator
-                annotation.subtitle = "\(round(1000*coordinator.latitude)/1000), \(round(1000*coordinator.longitude)/1000)"
-                photoMapView.addAnnotation(annotation)
-                self.pinAnnotation = annotation
+            let annotation = MKPointAnnotation()
+            let coordinator = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            annotation.coordinate = coordinator
+            annotation.subtitle = "\(round(1000*coordinator.latitude)/1000), \(round(1000*coordinator.longitude)/1000)"
+            photoMapView.addAnnotation(annotation)
+           self.pinAnnotation = annotation
 
              }
-
   
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
          
-               let reuseId = "pin"
-               var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+            let reuseId = "pin"
+            var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
                
-               if pinView == nil {
+            if pinView == nil {
                    
-                   pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-                   pinView!.canShowCallout = true
-                   pinView!.animatesDrop = true
+                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                pinView!.canShowCallout = true
+                pinView!.animatesDrop = true
                }
                    
                else {
                    
-                   pinView!.annotation = annotation
+                pinView!.annotation = annotation
+                
                }
 
                return pinView

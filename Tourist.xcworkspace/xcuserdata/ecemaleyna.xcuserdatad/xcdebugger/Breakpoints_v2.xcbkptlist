@@ -3,4 +3,146 @@
    uuid = "C9804375-EDBA-44A2-9180-2994DCC2BA33"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2EC8465-B641-47F4-9427-BFAB260B0A8B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViewController/PhotoViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "PhotoViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "E2EC8465-B641-47F4-9427-BFAB260B0A8B - 5923d2553eef8801"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tourist.PhotoViewController.pinAnnotation.getter : Swift.Optional&lt;__C.MKPointAnnotation&gt;"
+                  moduleName = "Tourist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ecemaleyna/Xcode%20Projects/Tourist/ViewController/PhotoViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "126">
+               </Location>
+               <Location
+                  uuid = "E2EC8465-B641-47F4-9427-BFAB260B0A8B - a3114eaedb5a640d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tourist.PhotoViewController.pinAnnotation.setter : Swift.Optional&lt;__C.MKPointAnnotation&gt;"
+                  moduleName = "Tourist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ecemaleyna/Xcode%20Projects/Tourist/ViewController/PhotoViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "E2EC8465-B641-47F4-9427-BFAB260B0A8B - 5fabc74b09201702"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tourist.PhotoViewController.pinAnnotation.modify : Swift.Optional&lt;__C.MKPointAnnotation&gt;"
+                  moduleName = "Tourist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ecemaleyna/Xcode%20Projects/Tourist/ViewController/PhotoViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "E2EC8465-B641-47F4-9427-BFAB260B0A8B - c77b87df99acca35"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tourist.PhotoViewController.pinAnnotation.modify : Swift.Optional&lt;__C.MKPointAnnotation&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Tourist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ecemaleyna/Xcode%20Projects/Tourist/ViewController/PhotoViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "E2EC8465-B641-47F4-9427-BFAB260B0A8B - f9ec213f3177e28a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tourist.PhotoViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Tourist.PhotoViewController"
+                  moduleName = "Tourist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ecemaleyna/Xcode%20Projects/Tourist/ViewController/PhotoViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "414">
+               </Location>
+               <Location
+                  uuid = "E2EC8465-B641-47F4-9427-BFAB260B0A8B - 160d0b24071bcda0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tourist.PhotoViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Tourist.PhotoViewController&gt;"
+                  moduleName = "Tourist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ecemaleyna/Xcode%20Projects/Tourist/ViewController/PhotoViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "355">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CAB8F678-76C0-49D4-804A-73EA2C1EB065"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViewController/PhotoViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "addMarkerToMap(latitude:longitude:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F133F188-34C9-468A-B148-937C06C14EC4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViewController/MapViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "addMarkerToMap(latitude:longitude:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

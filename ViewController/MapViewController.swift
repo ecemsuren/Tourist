@@ -9,13 +9,12 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDelegate{
-    
-   
+class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDelegate {
     
     @IBOutlet var dropLabel: UILabel!
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var clickToThePinDropLabel: UILabel!
+    
     var photoResponse: PhotoResponse? = nil
     
     var pinAnnotation : MKPointAnnotation?
@@ -53,8 +52,10 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
     @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
         
         if gestureReconizer.state != UIGestureRecognizer.State.ended {
+            
             let touchLocation = gestureReconizer.location(in: mapView)
             let locationCoordinate = mapView.convert(touchLocation,toCoordinateFrom: mapView)
+            
             print("Tapped at lat: \(locationCoordinate.latitude) long: \(locationCoordinate.longitude)")
             if !isEditing{
                addMarkerToMap(latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude)
@@ -62,9 +63,9 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
             
             
             ApiInteractor().getPhotoByLatLong(latitude: locationCoordinate.latitude,
-                                   longitude: locationCoordinate.longitude,
-                                   perPage: 30 ,
-                                   completionHandler: { responseData in
+                                              longitude: locationCoordinate.longitude,
+                                              perPage: 30 ,
+                                              completionHandler: { responseData in
                                       do {
                                         self.photoResponse = try JSONDecoder().decode(PhotoResponse.self, from: responseData)
                                       } catch let error {
@@ -87,14 +88,11 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         let annotation = MKPointAnnotation()
         let coordinator = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         annotation.coordinate = coordinator
-        self.pinAnnotation = annotation
         annotation.subtitle = "\(round(1000*coordinator.latitude)/1000), \(round(1000*coordinator.longitude)/1000)"
         mapView.addAnnotation(annotation)
+        self.pinAnnotation = annotation
         
-        
-        
-      
-      //  let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 30000, longitudinalMeters: 30000)
+    //  let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 30000, longitudinalMeters: 30000)
      //   mapView.setRegion(region, animated: true)
         
    }
@@ -114,6 +112,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
             let photosVC = segue.destination as! PhotoViewController
             photosVC.photoResponse = self.photoResponse
             photosVC.pinAnnotation = self.pinAnnotation
+            
         
         
         }
@@ -153,14 +152,17 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
        
        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         mapView.deselectAnnotation(view.annotation, animated: true)
-        if isEditing {
-            for annotation in self.mapView.annotations {
-                if (annotation.title == view.annotation?.title) {
-                    self.mapView.removeAnnotation(annotation)
+        self.pinAnnotation = view.annotation as! MKPointAnnotation
+            if isEditing {
+                for annotation in self.mapView.annotations {
+                    if (annotation.title == view.annotation?.title) {
+                        self.mapView.removeAnnotation(annotation)
                 }
             }
         } else {
+                
             self.performSegue(withIdentifier: "showPhoto", sender: nil)
+                
         }
     }
     
