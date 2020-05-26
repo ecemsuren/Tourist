@@ -18,6 +18,8 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
     @IBOutlet var clickToThePinDropLabel: UILabel!
     var photoResponse: PhotoResponse? = nil
     
+    var pinAnnotation : MKPointAnnotation?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,8 +87,10 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         let annotation = MKPointAnnotation()
         let coordinator = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         annotation.coordinate = coordinator
+        self.pinAnnotation = annotation
         annotation.subtitle = "\(round(1000*coordinator.latitude)/1000), \(round(1000*coordinator.longitude)/1000)"
         mapView.addAnnotation(annotation)
+        
         
         
       
@@ -109,6 +113,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         
             let photosVC = segue.destination as! PhotoViewController
             photosVC.photoResponse = self.photoResponse
+            photosVC.pinAnnotation = self.pinAnnotation
         
         
         }

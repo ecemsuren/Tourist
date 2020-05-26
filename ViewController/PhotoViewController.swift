@@ -16,6 +16,8 @@ class PhotoViewController : UIViewController, UICollectionViewDataSource, UIColl
 {
     
     var photoResponse: PhotoResponse? = nil
+    
+    var pinAnnotation : MKPointAnnotation?
 
     
     @IBOutlet var photoMapView: MKMapView!
@@ -30,9 +32,11 @@ class PhotoViewController : UIViewController, UICollectionViewDataSource, UIColl
         photoMapView.isZoomEnabled = false
     
         photoMapView.isScrollEnabled = false
-
+        
+        addMarkerToMap(latitude: (pinAnnotation?.coordinate.latitude)!, longitude: (pinAnnotation?.coordinate.longitude)!)
     
     }
+   
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (photoResponse?.photos.photo.count)!
@@ -40,6 +44,7 @@ class PhotoViewController : UIViewController, UICollectionViewDataSource, UIColl
        
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PhotoCollectionViewCell
+        
         
         let url = URL(string: self.photoResponse?.photos.photo[indexPath.row].urlM ?? "")
         let processor = DownsamplingImageProcessor(size: cell.photoImageView.bounds.size)
@@ -69,17 +74,18 @@ class PhotoViewController : UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
     }
-
+    
     func addMarkerToMap(latitude: Double, longitude: Double){
-           let annotation = MKPointAnnotation()
-           let coordinator = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-           annotation.coordinate = coordinator
-           annotation.subtitle = "\(round(1000*coordinator.latitude)/1000), \(round(1000*coordinator.longitude)/1000)"
-           photoMapView.addAnnotation(annotation)
-    
-           
-      }
-    
+                let annotation = MKPointAnnotation()
+                let coordinator = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                annotation.coordinate = coordinator
+                annotation.subtitle = "\(round(1000*coordinator.latitude)/1000), \(round(1000*coordinator.longitude)/1000)"
+                photoMapView.addAnnotation(annotation)
+                self.pinAnnotation = annotation
+
+             }
+
+  
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
          
                let reuseId = "pin"
