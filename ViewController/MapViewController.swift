@@ -24,13 +24,9 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         super.viewDidLoad()
         
         self.setMapview()
-        
         self.navigationItem.title = "TOURIST"
-        
         navigationItem.rightBarButtonItem = editButtonItem
-        
         clickToThePinDropLabel.isHidden = true
-        
         self.mapView.delegate = self
       
     }
@@ -61,20 +57,6 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
                addMarkerToMap(latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude)
             }
             
-            
-            ApiInteractor().getPhotoByLatLong(latitude: locationCoordinate.latitude,
-                                              longitude: locationCoordinate.longitude,
-                                              perPage: 30 ,
-                                              completionHandler: { responseData in
-                                      do {
-                                        self.photoResponse = try JSONDecoder().decode(PhotoResponse.self, from: responseData)
-                                      } catch let error {
-                                           print("Json Parse Error : \(error)")
-                                      }
-                                   },
-                                   failureHandler: { error in
-                                       print("Weather Request Error : \(error)")
-                                   })
             return
             
         }
@@ -106,14 +88,12 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         }
     }
     
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPhoto"  {
         
             let photosVC = segue.destination as! PhotoViewController
-            photosVC.photoResponse = self.photoResponse
-            photosVC.pinAnnotation = self.pinAnnotation
             
-        
+            photosVC.pinAnnotation = self.pinAnnotation
         
         }
     }
