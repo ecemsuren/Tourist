@@ -31,6 +31,9 @@ class PhotoViewController : UIViewController, UICollectionViewDataSource, UIColl
         photoMapView.isZoomEnabled = false
         photoMapView.isScrollEnabled = false
         
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
         addMarkerToMap(latitude: (pinAnnotation?.coordinate.latitude)!, longitude: (pinAnnotation?.coordinate.longitude)!)
         
         ApiInteractor().getPhotoByLatLong(latitude: (pinAnnotation?.coordinate.latitude)!,
@@ -47,12 +50,12 @@ class PhotoViewController : UIViewController, UICollectionViewDataSource, UIColl
                    failureHandler: { error in
                        print("Photo Request Error : \(error)")
                    })
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-   
-        return 10
-            //(photoResponse?.photos.photo.count)!
+        return photoResponse?.photos.photo.count ?? 0
        }
        
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
