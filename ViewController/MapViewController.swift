@@ -8,18 +8,18 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDelegate {
     
     @IBOutlet var dropLabel: UILabel!
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var clickToThePinDropLabel: UILabel!
-    
+  
     var photoResponse: PhotoResponse? = nil
     
     var pinAnnotation : MKPointAnnotation?
-    
-
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +28,14 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         navigationItem.rightBarButtonItem = editButtonItem
         clickToThePinDropLabel.isHidden = true
         self.mapView.delegate = self
+        
+        let pinList = MapViewController.fetchAll
+        
+        if pinList != nil && pinList.count > 0 {
+            for pin in pinList {
+                addMarkerToMap(latitude: pin.latitude, longitude: pin.longitude)
+            }
+        }
       
     }
     
@@ -59,6 +67,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
             
             return
             
+            
         }
         
         if gestureReconizer.state != UIGestureRecognizer.State.began {
@@ -72,6 +81,10 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         annotation.coordinate = coordinator
         annotation.subtitle = "\(round(1000*coordinator.latitude)/1000), \(round(1000*coordinator.longitude)/1000)"
         mapView.addAnnotation(annotation)
+        
+        
+        insert(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+        
         self.pinAnnotation = annotation
         
     //  let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 30000, longitudinalMeters: 30000)
@@ -97,6 +110,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         
         }
     }
+    
  
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -146,6 +160,39 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         }
     }
     
+    
+    func insert(latitude: Double, longitude: Double) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let entity =  NSEntityDescription.entity(forEntityName: "Pin", in:context)
+        let newItem = Pin(entity: entity!, insertInto: context)
+
+        newItem.latitude = latitude
+        newItem.longitude = longitude
+
+        do {
+            try context.save()
+    } catch {
+        print(error)
+    }
+    
 }
+    
+    static var fetchAll: [Pin] {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+    
+        let fetchRequest: NSFetchRequest<Pin> = Pin.fetchRequest()
+        var pinList = [Pin]()
+        do {
+            pinList = try context.fetch(fetchRequest)
+        } catch {
+            
+        }
+    return pinList
+}
+    
+    
 
-
+}

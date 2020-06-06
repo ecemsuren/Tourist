@@ -18,10 +18,10 @@ class PhotoViewController : UIViewController, UICollectionViewDataSource, UIColl
     var photoResponse: PhotoResponse? = nil
     
     var pinAnnotation : MKPointAnnotation?
-
     
     @IBOutlet var photoMapView: MKMapView!
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var flowLayout: UICollectionViewFlowLayout!
    
 
     override func viewDidLoad() {
@@ -51,7 +51,7 @@ class PhotoViewController : UIViewController, UICollectionViewDataSource, UIColl
                        print("Photo Request Error : \(error)")
                    })
         
-        
+      
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

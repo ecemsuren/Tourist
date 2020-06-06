@@ -101,7 +101,7 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mQT-FM-z2t">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="136"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
                                                         </imageView>
                                                     </subviews>
                                                 </collectionViewCellContentView>
@@ -130,6 +130,7 @@
                     <navigationItem key="navigationItem" id="Kr3-xN-cdw"/>
                     <connections>
                         <outlet property="collectionView" destination="2bS-Wt-l4E" id="t7M-Hz-9qg"/>
+                        <outlet property="flowLayout" destination="lZc-nV-Ljm" id="MD8-uK-Z5d"/>
                         <outlet property="photoMapView" destination="b67-gR-GV2" id="oia-fv-X51"/>
                     </connections>
                 </viewController>

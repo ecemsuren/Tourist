@@ -14,11 +14,11 @@
 		88340FD1246F59620076B6C6 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88340FD0246F59620076B6C6 /* Photo.swift */; };
 		883862E52471A32A00010E5D /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883862E42471A32A00010E5D /* PhotoViewController.swift */; };
 		883862E72471C03B00010E5D /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883862E62471C03B00010E5D /* PhotoCollectionViewCell.swift */; };
+		885737662485408300D371DD /* Tourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 885737642485408300D371DD /* Tourist.xcdatamodeld */; };
 		88E6DAA9246C6DF9001327FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6DAA8246C6DF9001327FA /* AppDelegate.swift */; };
 		88E6DAAB246C6DF9001327FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6DAAA246C6DF9001327FA /* SceneDelegate.swift */; };
 		88E6DAAD246C6DF9001327FA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6DAAC246C6DF9001327FA /* MapViewController.swift */; };
 		88E6DAB0246C6DF9001327FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E6DAAE246C6DF9001327FA /* Main.storyboard */; };
-		88E6DAB3246C6DF9001327FA /* Tourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88E6DAB1246C6DF9001327FA /* Tourist.xcdatamodeld */; };
 		88E6DAB5246C6DFA001327FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88E6DAB4246C6DFA001327FA /* Assets.xcassets */; };
 		88E6DAB8246C6DFA001327FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E6DAB6246C6DFA001327FA /* LaunchScreen.storyboard */; };
 		E3BB2F3D9F67234ECCB3E36E /* Pods_Tourist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B1A2B52B4395F45E195BC89 /* Pods_Tourist.framework */; };
@@ -34,12 +34,12 @@
 		88340FD0246F59620076B6C6 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		883862E42471A32A00010E5D /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		883862E62471C03B00010E5D /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		885737652485408300D371DD /* Tourist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tourist.xcdatamodel; sourceTree = "<group>"; };
 		88E6DAA5246C6DF9001327FA /* Tourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E6DAA8246C6DF9001327FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88E6DAAA246C6DF9001327FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		88E6DAAC246C6DF9001327FA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		88E6DAAF246C6DF9001327FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		88E6DAB2246C6DF9001327FA /* Tourist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tourist.xcdatamodel; sourceTree = "<group>"; };
 		88E6DAB4246C6DFA001327FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88E6DAB7246C6DFA001327FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88E6DAB9246C6DFA001327FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,9 +95,18 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		88923A6624843FBC005CD34C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				885737642485408300D371DD /* Tourist.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		88E6DA9C246C6DF9001327FA = {
 			isa = PBXGroup;
 			children = (
+				88923A6624843FBC005CD34C /* Model */,
 				8815D2A0247326D100F664F8 /* ViewController */,
 				88340FCB246F56690076B6C6 /* Data */,
 				8815707A246DDA3000C3FE9A /* Network */,
@@ -125,7 +134,6 @@
 				88E6DAB4246C6DFA001327FA /* Assets.xcassets */,
 				88E6DAB6246C6DFA001327FA /* LaunchScreen.storyboard */,
 				88E6DAB9246C6DFA001327FA /* Info.plist */,
-				88E6DAB1246C6DF9001327FA /* Tourist.xcdatamodeld */,
 			);
 			path = Tourist;
 			sourceTree = "<group>";
@@ -256,10 +264,10 @@
 			files = (
 				88E6DAAD246C6DF9001327FA /* MapViewController.swift in Sources */,
 				88E6DAA9246C6DF9001327FA /* AppDelegate.swift in Sources */,
-				88E6DAB3246C6DF9001327FA /* Tourist.xcdatamodeld in Sources */,
 				88340FD1246F59620076B6C6 /* Photo.swift in Sources */,
 				88E6DAAB246C6DF9001327FA /* SceneDelegate.swift in Sources */,
 				88340FCF246F59330076B6C6 /* Photos.swift in Sources */,
+				885737662485408300D371DD /* Tourist.xcdatamodeld in Sources */,
 				8815707E246DDC3D00C3FE9A /* ApiClient.swift in Sources */,
 				88340FCA246ED8710076B6C6 /* ApiInteractor.swift in Sources */,
 				88340FCD246F56820076B6C6 /* PhotoResponse.swift in Sources */,
@@ -464,12 +472,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		88E6DAB1246C6DF9001327FA /* Tourist.xcdatamodeld */ = {
+		885737642485408300D371DD /* Tourist.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				88E6DAB2246C6DF9001327FA /* Tourist.xcdatamodel */,
+				885737652485408300D371DD /* Tourist.xcdatamodel */,
 			);
-			currentVersion = 88E6DAB2246C6DF9001327FA /* Tourist.xcdatamodel */;
+			currentVersion = 885737652485408300D371DD /* Tourist.xcdatamodel */;
 			path = Tourist.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
