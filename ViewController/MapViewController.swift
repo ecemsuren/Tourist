@@ -63,12 +63,12 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
             print("Tapped at lat: \(locationCoordinate.latitude) long: \(locationCoordinate.longitude)")
             if !isEditing{
                addMarkerToMap(latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude)
+               insert(latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude)
             }
             
             return
             
-            
-        }
+    }
         
         if gestureReconizer.state != UIGestureRecognizer.State.began {
             return
@@ -81,10 +81,6 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         annotation.coordinate = coordinator
         annotation.subtitle = "\(round(1000*coordinator.latitude)/1000), \(round(1000*coordinator.longitude)/1000)"
         mapView.addAnnotation(annotation)
-        
-        
-        insert(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
-        
         self.pinAnnotation = annotation
         
     //  let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 30000, longitudinalMeters: 30000)
@@ -164,7 +160,6 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
     func insert(latitude: Double, longitude: Double) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-
         let entity =  NSEntityDescription.entity(forEntityName: "Pin", in:context)
         let newItem = Pin(entity: entity!, insertInto: context)
 
@@ -178,6 +173,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
     }
     
 }
+    
     
     static var fetchAll: [Pin] {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
