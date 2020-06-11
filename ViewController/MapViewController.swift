@@ -145,7 +145,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         self.pinAnnotation = view.annotation as! MKPointAnnotation
             if isEditing {
                 for annotation in self.mapView.annotations {
-                    if (annotation.title == view.annotation?.title) {
+                    if (annotation.isEqual(view.annotation)) {
                         self.mapView.removeAnnotation(annotation)
                 }
             }
