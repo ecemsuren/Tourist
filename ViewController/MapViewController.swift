@@ -144,10 +144,14 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         mapView.deselectAnnotation(view.annotation, animated: true)
         self.pinAnnotation = view.annotation as! MKPointAnnotation
             if isEditing {
-                for annotation in self.mapView.annotations {
-                    if (annotation.isEqual(view.annotation)) {
-                        self.mapView.removeAnnotation(annotation)
+            for annotation in self.mapView.annotations {
+                if (annotation.isEqual(view.annotation)) {
+                    self.mapView.removeAnnotation(annotation)
+                    deletePin(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+                    
                 }
+                
+                
             }
         } else {
                 
@@ -189,6 +193,32 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
     return pinList
 }
     
+    func deletePin(latitude: Double, longitude: Double) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Pin")
+        request.returnsObjectsAsFaults = false
+            // If you want to delete data on basis of some condition then you can use NSPredicate
+             let predicateDel = NSPredicate(format: "latitude == \(latitude) AND longitude == \(longitude)" )
+             request.predicate = predicateDel
+            
+        do {
+            let pinList = try context.fetch(request)
+            for pin in pinList as! [NSManagedObject] { // Fetching Object
+                context.delete(pin) // Deleting Object
+            }
+        } catch {
+            print("Failed")
+    }
+
+        // Saving the Delete operation
+        do {
+            try context.save()
+        } catch {
+            print("Failed saving")
+    }
+        
+}
     
 
 }
