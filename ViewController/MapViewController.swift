@@ -9,12 +9,15 @@
 import UIKit
 import MapKit
 import CoreData
+import CoreLocation
 
-class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDelegate {
+class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var dropLabel: UILabel!
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var clickToThePinDropLabel: UILabel!
+    var locationManager: CLLocationManager?
+
   
     var photoResponse: PhotoResponse? = nil
     
@@ -36,7 +39,28 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
                 addMarkerToMap(latitude: pin.latitude, longitude: pin.longitude)
             }
         }
-      
+      locationManager = CLLocationManager()
+      locationManager?.delegate = self
+      locationManager?.requestAlwaysAuthorization()
+      view.backgroundColor = .gray
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways {
+            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                if CLLocationManager.isRangingAvailable() {
+                    // do stuff
+                }
+            }
+        }
+        
+        if status == .authorizedWhenInUse{
+            
+        }
+        
+        if status == .denied {
+            
+        }
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {

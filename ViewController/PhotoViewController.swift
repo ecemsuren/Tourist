@@ -22,14 +22,19 @@ class PhotoViewController : UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet var photoMapView: MKMapView!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var flowLayout: UICollectionViewFlowLayout!
+    
+    
    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//       let collectionViewFlowLayout = UICollectionViewFlowLayout()
+//       collectionViewFlowLayout.estimatedItemSize = CGSize(width: collectionView.frame.width, height: 100)
+        
         self.photoMapView.delegate = self
         photoMapView.isZoomEnabled = false
-        photoMapView.isScrollEnabled = false
+        photoMapView.isScrollEnabled = true
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -53,6 +58,7 @@ class PhotoViewController : UIViewController, UICollectionViewDataSource, UIColl
         
       
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoResponse?.photos.photo.count ?? 0
@@ -98,6 +104,7 @@ class PhotoViewController : UIViewController, UICollectionViewDataSource, UIColl
             annotation.subtitle = "\(round(1000*coordinator.latitude)/1000), \(round(1000*coordinator.longitude)/1000)"
             photoMapView.addAnnotation(annotation)
             self.pinAnnotation = annotation
+            photoMapView.setCenter(coordinator, animated: true)
 
              }
   
