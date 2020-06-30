@@ -22,19 +22,14 @@ class PhotoViewController : UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet var photoMapView: MKMapView!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var flowLayout: UICollectionViewFlowLayout!
-    
-    
-   
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//       let collectionViewFlowLayout = UICollectionViewFlowLayout()
-//       collectionViewFlowLayout.estimatedItemSize = CGSize(width: collectionView.frame.width, height: 100)
-        
+        updateFlowLayout(view.frame.size)
         self.photoMapView.delegate = self
         photoMapView.isZoomEnabled = false
-        photoMapView.isScrollEnabled = true
+        photoMapView.isScrollEnabled = false
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -55,11 +50,9 @@ class PhotoViewController : UIViewController, UICollectionViewDataSource, UIColl
                    failureHandler: { error in
                        print("Photo Request Error : \(error)")
                    })
-        
-      
     }
     
-    
+ 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoResponse?.photos.photo.count ?? 0
        }
@@ -103,10 +96,25 @@ class PhotoViewController : UIViewController, UICollectionViewDataSource, UIColl
             annotation.coordinate = coordinator
             annotation.subtitle = "\(round(1000*coordinator.latitude)/1000), \(round(1000*coordinator.longitude)/1000)"
             photoMapView.addAnnotation(annotation)
-            self.pinAnnotation = annotation
             photoMapView.setCenter(coordinator, animated: true)
+            self.pinAnnotation = annotation
 
              }
+    
+    private func updateFlowLayout(_ withSize: CGSize) {
+        
+        let landscape = withSize.width > withSize.height
+        
+        let space: CGFloat = landscape ? 5 : 3
+        let items: CGFloat = landscape ? 2 : 3
+        
+        let dimension = (withSize.width - ((items + 1) * space)) / items
+        
+        flowLayout?.minimumInteritemSpacing = space
+        flowLayout?.minimumLineSpacing = space
+        flowLayout?.itemSize = CGSize(width: dimension, height: dimension)
+        flowLayout?.sectionInset = UIEdgeInsets(top: space, left: space, bottom: space, right: space)
+    }
   
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
          

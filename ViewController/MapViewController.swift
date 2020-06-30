@@ -11,14 +11,11 @@ import MapKit
 import CoreData
 import CoreLocation
 
-class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDelegate{
     
     @IBOutlet var dropLabel: UILabel!
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var clickToThePinDropLabel: UILabel!
-    var locationManager: CLLocationManager?
-
-  
     var photoResponse: PhotoResponse? = nil
     
     var pinAnnotation : MKPointAnnotation?
@@ -39,28 +36,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
                 addMarkerToMap(latitude: pin.latitude, longitude: pin.longitude)
             }
         }
-      locationManager = CLLocationManager()
-      locationManager?.delegate = self
-      locationManager?.requestAlwaysAuthorization()
-      view.backgroundColor = .gray
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
-            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
-                if CLLocationManager.isRangingAvailable() {
-                    // do stuff
-                }
-            }
-        }
-        
-        if status == .authorizedWhenInUse{
-            
-        }
-        
-        if status == .denied {
-            
-        }
+      
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -106,9 +82,6 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, MKMapVie
         annotation.subtitle = "\(round(1000*coordinator.latitude)/1000), \(round(1000*coordinator.longitude)/1000)"
         mapView.addAnnotation(annotation)
         self.pinAnnotation = annotation
-        
-    //  let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 30000, longitudinalMeters: 30000)
-     //   mapView.setRegion(region, animated: true)
         
    }
     
