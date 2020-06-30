@@ -8,14 +8,14 @@ A map is shown where you can long press the location you want, which will make t
 
 |   | Description |
 | ------------- | ------------- |
-| Alamofire     | Easy HTTP networking in Swift.                                                      |
-| Kingfisher    | A lightweight, pure-Swift library for downloading and caching images from the web.  |
+| [Alamofire](https://github.com/Alamofire/Alamofire)     | Easy HTTP networking in Swift.                                                      |
+| [Kingfisher](https://github.com/onevcat/Kingfisher)  | A lightweight, pure-Swift library for downloading and caching images from the web.  |
 
 **API**
 
 |   | Description |
 | ------------- | ------------- |
-| Flickr API     | It is used to retrieve photos related to the locations.   |
+| [Flickr API](https://www.flickr.com/services/api/)    | It is used to retrieve photos related to the locations.   |
 
 
 <img src="https://user-images.githubusercontent.com/47485181/86127720-073ff600-bae9-11ea-974b-05ee138c01a0.png" width ="250" />   <img src="https://user-images.githubusercontent.com/47485181/86127731-09a25000-bae9-11ea-88b0-49c9e1bff9fd.png" width ="250" />   <img src="https://user-images.githubusercontent.com/47485181/86127740-0c9d4080-bae9-11ea-93ba-572da78c214e.png" width ="250" />
